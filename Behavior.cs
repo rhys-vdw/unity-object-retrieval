@@ -35,6 +35,11 @@ public abstract class Behavior : MonoBehaviour
         return transform.Ancestors();
     }
 
+    protected Transform Parent()
+    {
+        return transform.parent;
+    }
+
     /// <summary>
     /// Return <c>Transform</c> and all its immediate children.
     /// </summary>
