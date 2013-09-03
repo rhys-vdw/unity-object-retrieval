@@ -29,10 +29,10 @@ public static class ComponentRetrieval
         return component.GetComponent<TComponent>();
     }
 
-    public static TComponent ComponentOrNull<TComponent>( this IEnumerable<Component> components )
+    public static TComponent ComponentOrNull<TComponent>( this IEnumerable<Transform> transforms )
         where TComponent : Component
     {
-        return components
+        return transforms
             .Select( t => t.GetComponent<TComponent>() )
             .FirstOrDefault();
     }
@@ -57,10 +57,10 @@ public static class ComponentRetrieval
         return c;
     }
 
-    public static TComponent Component<TComponent>( this IEnumerable<Component> components )
+    public static TComponent Component<TComponent>( this IEnumerable<Transform> transforms )
         where TComponent : Component
     {
-        var c = components.ComponentOrNull<TComponent>();
+        var c = transforms.ComponentOrNull<TComponent>();
         if( c == null ) {
             throw new ComponentNotFoundException( typeof( TComponent ) );
         }
