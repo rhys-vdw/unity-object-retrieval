@@ -83,8 +83,7 @@ public static class ComponentRetrieval
         where TComponent : Component
     {
         return transforms
-            .Select( t => t.GetComponent<TComponent>() )
-            .Where( c => c != null );
+            .SelectMany( t => t.GetComponents<TComponent>() );
     }
 }
 
