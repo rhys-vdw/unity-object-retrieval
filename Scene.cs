@@ -52,7 +52,7 @@ public class Scene
 
     public static TObject ObjectOrNull<TObject>() where TObject : UnityEngine.Object
     {
-        return (TObject) UnityEngine.Object.FindObjectOfType( typeof(TObject) );
+        return UnityEngine.Object.FindObjectOfType( typeof(TObject) ) as TObject;
     }
 
     public static TObject Object<TObject>() where TObject : UnityEngine.Object
@@ -67,7 +67,7 @@ public class Scene
 
     public static TObject[] Objects<TObject>() where TObject : UnityEngine.Object
     {
-        return (TObject[]) UnityEngine.Object.FindObjectsOfType( typeof(TObject) );
+        return UnityEngine.Object.FindObjectsOfType( typeof(TObject) ) as TObject[];
     }
 }
 
