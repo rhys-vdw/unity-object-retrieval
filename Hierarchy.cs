@@ -20,9 +20,9 @@ public static class Hierarchy
         foreach( var child in transform.Children() )
         {
             yield return child;
-            foreach( var grandChild in child.Children() )
+            foreach( var descendant in child.Descendants() )
             {
-                yield return grandChild;
+                yield return descendant;
             }
         }
     }
