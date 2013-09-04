@@ -17,13 +17,12 @@ public static class Hierarchy
 
     public static IEnumerable<Transform> Descendants( this Transform transform )
     {
-        foreach( var child in transform.Children() )
+        var descendants = transform.Children()
+            .SelectMany( child => child.SelfDescendants() );
+
+        foreach( var descendant in descendants )
         {
-            yield return child;
-            foreach( var descendant in child.Descendants() )
-            {
-                yield return descendant;
-            }
+            yield return descendant;
         }
     }
 
@@ -43,7 +42,14 @@ public static class Hierarchy
 
     public static IEnumerable<Transform> SelfDescendants( this Transform transform )
     {
-        return new [] { transform }.Concat( transform.Descendants() );
+        var descendants = transform.Children()
+            .SelectMany( child => child.SelfDescendants() );
+
+        yield return transform;
+        foreach( var descendant in descendants )
+        {
+            yield return descendant;
+        }
     }
 
     public static IEnumerable<Transform> SelfAncestors( this Transform transform )
