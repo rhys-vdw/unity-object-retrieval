@@ -17,12 +17,6 @@ public class ComponentNotFoundException : InvalidOperationException
 
 public static class ComponentRetrieval
 {
-    public static TComponent ComponentOrNull<TComponent>( this GameObject gameObject )
-        where TComponent : Component
-    {
-        return gameObject.GetComponent<TComponent>();
-    }
-
     public static TComponent ComponentOrNull<TComponent>( this Component component )
         where TComponent : Component
     {
@@ -35,16 +29,6 @@ public static class ComponentRetrieval
         return transforms
             .Select( t => t.GetComponent<TComponent>() )
             .FirstOrDefault();
-    }
-
-    public static TComponent Component<TComponent>( this GameObject gameObject )
-        where TComponent : Component
-    {
-        var c = gameObject.GetComponent<TComponent>();
-        if( c == null ) {
-            throw new ComponentNotFoundException( typeof( TComponent ) );
-        }
-        return c;
     }
 
     public static TComponent Component<TComponent>( this Component component )
@@ -65,12 +49,6 @@ public static class ComponentRetrieval
             throw new ComponentNotFoundException( typeof( TComponent ) );
         }
         return c;
-    }
-
-    public static IEnumerable<TComponent> Components<TComponent>( this GameObject gameObject )
-        where TComponent : Component
-    {
-        return gameObject.GetComponents<TComponent>();
     }
 
     public static IEnumerable<TComponent> Components<TComponent>( this Component component )
