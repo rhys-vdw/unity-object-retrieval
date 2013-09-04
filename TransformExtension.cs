@@ -5,7 +5,7 @@ using System.Linq;
 namespace UnityBasics
 {
 
-public static class Hierarchy
+public static class TransformExtension
 {
     public static IEnumerable<Transform> Children( this Transform transform )
     {
