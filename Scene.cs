@@ -13,7 +13,7 @@ public class SceneObjectNotFoundException : Exception
     { }
 }
 
-public class Scene
+public static class Scene
 {
     public static GameObject GameObjectOrNull( string name )
     {
