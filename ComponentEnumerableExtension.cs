@@ -26,7 +26,7 @@ public static class ComponentEnumerableExtension
     {
         return components
             .Select( c => c.GetComponent<TOut>() )
-            .FirstOrDefault();
+            .FirstOrDefault( c => c != null );
     }
 
     public static TOut Component<TIn, TOut>( this IEnumerable<TIn> components )
