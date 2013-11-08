@@ -28,6 +28,36 @@ public static class ComponentExtension
     {
         return component.GetComponents<TComponent>();
     }
+
+    public static IEnumerable<Transform> Children( this Component component )
+    {
+        return component.transform.Children();
+    }
+
+    public static IEnumerable<Transform> Descendants( this Component component )
+    {
+        return component.transform.Descendants();
+    }
+
+    public static IEnumerable<Transform> Ancestors( this Component component )
+    {
+        return component.transform.Ancestors();
+    }
+
+    public static IEnumerable<Transform> SelfChildren( this Component component )
+    {
+        return component.transform.SelfChildren();
+    }
+
+    public static IEnumerable<Transform> SelfDescendants( this Component component )
+    {
+       return component.transform.SelfDescendants();
+    }
+
+    public static IEnumerable<Transform> SelfAncestors( this Component component )
+    {
+        return component.transform.SelfAncestors();
+    }
 }
 
 }
