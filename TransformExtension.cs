@@ -5,7 +5,7 @@ using System.Linq;
 namespace UnityBasics
 {
 
-public static class Hierarchy
+public static class TransformExtension
 {
     public static IEnumerable<Transform> Children( this Transform transform )
     {
@@ -37,7 +37,11 @@ public static class Hierarchy
 
     public static IEnumerable<Transform> SelfChildren( this Transform transform )
     {
-        return new [] { transform }.Concat( transform.Children() );
+        yield return transform;
+        foreach( var child in transform.Children() )
+        {
+            yield return child;
+        }
     }
 
     public static IEnumerable<Transform> SelfDescendants( this Transform transform )
