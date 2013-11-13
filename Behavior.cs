@@ -1,14 +1,14 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-namespace UnityBasics
+namespace UnityObjectRetrieval
 {
 
 /// <summary>
 /// A base class for Unity script components that a protected interface for
 /// convenient use in scripts.
 /// </summary>
-public abstract class Behavior : MonoBehaviour
+public abstract class ExtendedMonoBehaviour : MonoBehaviour
 {
     /// <summary>
     /// Get all immediate children of the <c>Transform</c>.

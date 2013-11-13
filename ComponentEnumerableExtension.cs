@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 
-namespace UnityBasics
+namespace UnityObjectRetrieval
 {
 
 public class ComponentNotFoundException : InvalidOperationException

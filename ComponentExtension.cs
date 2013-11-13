@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace UnityBasics
+namespace UnityObjectRetrieval
 {
 
 public static class ComponentExtension

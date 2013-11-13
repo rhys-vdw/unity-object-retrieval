@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-namespace UnityBasics
+namespace UnityObjectRetrieval
 {
 
 public class SceneObjectNotFoundException : Exception
